@@ -169,25 +169,25 @@ class FPDF_AutoWrapTable extends FPDF {
         $this->Ln(5); // Add space after notes
 
         // Print subtotal
-        $x = 145;
+        $x = 143;
         $this->SetXY($x, $currentY);
-        $this->Cell(30, 5, 'Sub Total', 0, 0, 'L');
-        $this->Cell(3, 5, ':', 0, 0, 'C');
-        $this->Cell(22, 5, $subtotal, 0, 1, 'R');
-
-        // Print tax
-        $y2 = $this->GetY();
-        $this->SetXY($x, $y2);
-        $this->Cell(30, 5, 'Tax', 0, 0, 'L');
-        $this->Cell(3, 5, ':', 0, 0, 'C');
-        $this->Cell(22, 5, $tax, 0, 1, 'R');
-
-        // Print total
-        $y3 = $this->GetY();
-        $this->SetXY($x, $y3);
         $this->Cell(30, 5, 'Total', 0, 0, 'L');
         $this->Cell(3, 5, ':', 0, 0, 'C');
         $this->Cell(22, 5, $total, 0, 1, 'R');
+
+        // // Print tax
+        // $y2 = $this->GetY();
+        // $this->SetXY($x, $y2);
+        // $this->Cell(30, 5, 'Tax', 0, 0, 'L');
+        // $this->Cell(3, 5, ':', 0, 0, 'C');
+        // $this->Cell(22, 5, $tax, 0, 1, 'R');
+
+        // // Print total
+        // $y3 = $this->GetY();
+        // $this->SetXY($x, $y3);
+        // $this->Cell(30, 5, 'Total', 0, 0, 'L');
+        // $this->Cell(3, 5, ':', 0, 0, 'C');
+        // $this->Cell(22, 5, $total, 0, 1, 'R');
 
         // For signaturese
        $newY = $currentY + $notesHeight+5; 

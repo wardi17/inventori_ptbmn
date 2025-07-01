@@ -22,7 +22,7 @@ class FPDF_AutoWrapTable extends FPDF {
         date_default_timezone_set('Asia/Jakarta');
         $border = 0;
         $this->AddPage();
-        $this->SetAutoPageBreak(true, 60);
+        $this->SetAutoPageBreak(true, 15);
         $this->AliasNbPages();
         $left = 25;
 
@@ -44,7 +44,7 @@ class FPDF_AutoWrapTable extends FPDF {
             $CustCoName = $items['CustCoName'];
             $custname = $items['CustName'];
             $custaddress = $items['CustAddress'];
-            $subtotal = $items["Sub_total"];
+            $subtotal = $items["Sub_Total"];
             $tax = $items["Tax"];
             $total = $items["Total"];
         }
@@ -163,7 +163,7 @@ class FPDF_AutoWrapTable extends FPDF {
         $this->MultiCell(3, 5, ':', 0, 'L', FALSE);
         $this->SetXY(24, $currentY);
         $notesHeight = $this->GetMultiCellHeight(85, 5, $SOEntryDesc);
-        $this->MultiCell(85, 5, $SOEntryDesc, 1, 'L', false);
+        $this->MultiCell(85, 5, $SOEntryDesc, 0, 'L', false);
 
         // Add spacing after notes
         $this->Ln(5); // Add space after notes
@@ -171,7 +171,7 @@ class FPDF_AutoWrapTable extends FPDF {
         // Print subtotal
         $x = 145;
         $this->SetXY($x, $currentY);
-        $this->Cell(30, 5, 'Sub Total', 1, 0, 'L');
+        $this->Cell(30, 5, 'Sub Total', 0, 0, 'L');
         $this->Cell(3, 5, ':', 0, 0, 'C');
         $this->Cell(22, 5, $subtotal, 0, 1, 'R');
 
@@ -189,11 +189,11 @@ class FPDF_AutoWrapTable extends FPDF {
         $this->Cell(3, 5, ':', 0, 0, 'C');
         $this->Cell(22, 5, $total, 0, 1, 'R');
 
-        // For signatures
-        
+        // For signaturese
        $newY = $currentY + $notesHeight+5; 
         $this->SetY($newY); // This ensures proper spacing after notes
         $this->SetFont('Arial', '', 8);
+        $this->Cell(10,5, '', 0, 1, 'C');
         $this->Cell(35, 5, 'Disiapkan Oleh,', 0, 0, 'C');
         $this->Cell(60, 5, 'Disetujui Oleh,', 0, 0, 'C');
         $this->Cell(55, 5, 'Dikirim Oleh,', 0, 0, 'C');
@@ -218,7 +218,7 @@ class FPDF_AutoWrapTable extends FPDF {
 }
 
             function Footer() {
-                $this->SetY(-5); // artinya 10 pt (≈3.5 mm) dari bawah
+                $this->SetY(-10); // artinya 10 pt (≈3.5 mm) dari bawah
                 $this->SetFont('Arial', 'I', 6); // kecilkan ukuran font
                 $this->Cell(0, 5, 'Page ' . $this->PageNo() . ' of {nb}', 0, 0, 'R');
             }

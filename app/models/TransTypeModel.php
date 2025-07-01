@@ -200,8 +200,10 @@ class TransTypeModel{
                 where parttype='FG' AND divisi=1 AND partid='{$partid}' ";
 	      $sql =$this->db->baca_sql($query);
 		  $unit_price= round(odbc_result($sql,"unit_price"),0);
-
-            return $unit_price;
+       
+          $addtoPPN = $unit_price / 1.11;
+       
+            return round($addtoPPN,2);
         }
 
 

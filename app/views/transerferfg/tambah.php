@@ -665,22 +665,13 @@ getUnitPrice = (partid) => {
           }else{
             return  fulldata;
           }
-          //const validasitgl = validasitanggal(tanggal);
-          //console.log(validasitgl)
-         // 
+        
          //
       }else{
           return false;
       }
   }
 
-function validasitanggal(tanggal){
-  const tgl_sekarang = TglSekarang();
-  split_tgls = tgl_sekarang.split('-');
-
-  console.log(split_tgls)
-  
-}
 
  
   function  GetkodeTransada(userid){
